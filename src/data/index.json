@@ -1,0 +1,76 @@
+
+{
+  "skills": [
+    {
+      "id": "1",
+      "src": "./img/product-chain-1.png",
+      "title": "Front-End",
+      "description": "HTML, CSS, Javascri pt, Bootstrap, React JS."
+    },
+    {
+      "id": "2",
+      "src": "./img/tag-1.png",
+      "title": "Back-End",
+      "description": "Python, C, Java, In Python Web Development using Django Rest Framework."
+    },
+    {
+      "id": "3",
+      "src": "./img/feather-pen-2.png",
+      "title": "Database And DevOps",
+      "description": "MySQL, SQL, SQLIte, Redis, Jenkins, AWS Basics, Docker basics GIT Github Gitlab."
+    },  
+    {
+      "id": "4",            
+      "src": "./img/feather-pen-1.png",
+      "title": "Web Development",
+      "description": "Build Project In Web Devlopment using React JS and Django Rest Framework."
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "1",
+      "src": "./img/placeholder-image.png",
+      "title": "Blogs",
+      "description": "Complete Full Stack Project using React JS and Django Rest Framework and complete Authentication also.",
+      "link": "https://github.com/mukulsar143/Blogs"
+    },
+    {
+      "id": "2",
+      "src": "./img/placeholder-image-1.png",
+      "title": "E-Commerce API's",
+      "description": "Build Ecommerce website APIs using Django Rest Framework and applied all functionalities like product lists, add to Cart, Cart and authentication.  ",
+      "link": "https://github.com/mukulsar143/Ecom"
+    },
+    {
+      "id": "3",
+      "src": "./img/placeholder-image-2.png",
+      "title": "Chat App API using WebSocket ",
+      "description": "Chat App Using WebSocket channels in Django Rest Framework, and complete user jwt authentication.",
+      "link": "https://github.com/mukulsar143/Chat-App-Websocket"
+    }
+    
+  ],
+  "testimonial": [
+    {
+      "id": "1",
+      "count": "5",
+      "description": "I'm covered up lots of topics about python in this course and build projects also and move to getting advanced things in python.",
+      "author_name": "Udemy Certificate of Python Beginner Course ",
+      "author_designation": "Udemy"
+    },
+    {
+      "id": "2",
+      "count": "5",
+      "description": "I have Done my internship in IT base Company and learn and give it 100% in my in this job and I build some project also. ",
+      "author_name": "Web Developer Internship",
+      "author_designation": "Aara Groups"
+    },
+    {
+      "id": "3",
+      "count": "5",
+      "description": "In this course i have done some basics about computer like MS Office and C language etc.",
+      "author_name": "Advanced Diploma in Computer Application ",
+      "author_designation": "Unitech"
+    }
+  ]
+}
