@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Portfolio/static/css/main.f7bc6034.css",
-    "main.js": "/Portfolio/static/js/main.c6fe1215.js",
+    "main.js": "/Portfolio/static/js/main.dffc0706.js",
     "static/media/mypic2.jpg": "/Portfolio/static/media/mypic2.e497d5c8db3cef75b07e.jpg",
     "static/media/mypic3.jpg": "/Portfolio/static/media/mypic3.2a0faf491e28afd0083d.jpg",
     "static/media/Mukul-Sarkar-CV.pdf": "/Portfolio/static/media/Mukul-Sarkar-CV.3f0783278f038f68a8a7.pdf",
     "static/media/python.jpg": "/Portfolio/static/media/python.57173d371c618046ec5a.jpg",
     "index.html": "/Portfolio/index.html",
     "main.f7bc6034.css.map": "/Portfolio/static/css/main.f7bc6034.css.map",
-    "main.c6fe1215.js.map": "/Portfolio/static/js/main.c6fe1215.js.map"
+    "main.dffc0706.js.map": "/Portfolio/static/js/main.dffc0706.js.map"
   },
   "entrypoints": [
     "static/css/main.f7bc6034.css",
-    "static/js/main.c6fe1215.js"
+    "static/js/main.dffc0706.js"
   ]
 }
