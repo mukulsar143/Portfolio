@@ -6,8 +6,7 @@ export default function MyPortfolio() {
     <section className="portfolio--section" id="MyPortfolio">
       <div className="portfolio--container-box">
         <div className="portfolio--container">
-          <p className="sub--title">Recent Projects</p>
-          <h2 className="section--heading">My Portfolio</h2>
+          <h2 className="section--heading">My Projects</h2>
         </div>
         <div>
           <Link to='https://github.com/mukulsar143' style={{textDecoration : 'None'}}><button className="btn btn-github">

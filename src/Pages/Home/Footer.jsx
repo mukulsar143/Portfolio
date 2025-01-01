@@ -75,6 +75,19 @@ function Footer() {
                 Certificates & Licence
               </Link>
             </li>
+            <li>
+            <Link
+              activeClass="navbar--active-content"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              to="experience"
+              className="text-md"
+            >
+              Experiences
+            </Link>
+          </li>
           </ul>
         </div>
         <div className="footer--social--icon">

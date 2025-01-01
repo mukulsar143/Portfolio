@@ -1,29 +1,29 @@
 
 {
-  "skills": [
+ "skills": [
     {
       "id": "1",
       "src": "./img/product-chain-1.png",
-      "title": "Front-End",
-      "description": "HTML, CSS, Javascri pt, Bootstrap, React JS."
+      "title": "Front-End Development",
+      "description": "React.js, HTML, CSS, JavaScript, Bootstrap - Skilled in building responsive and interactive user interfaces."
     },
     {
       "id": "2",
       "src": "./img/tag-1.png",
-      "title": "Back-End",
-      "description": "Python, C, Java, In Python Web Development using Django Rest Framework."
+      "title": "Back-End Development",
+      "description": "Python, Django Rest Framework - Experienced in building scalable RESTful APIs and web services."
     },
     {
       "id": "3",
       "src": "./img/feather-pen-2.png",
-      "title": "Database And DevOps",
-      "description": "MySQL, SQL, SQLIte, Redis, Jenkins, AWS Basics, Docker basics GIT Github Gitlab."
-    },  
+      "title": "Database & DevOps",
+      "description": "MySQL, PostgreSQL, MongoDB, Redis - Proficient in managing databases and deploying applications with Docker, Git, and AWS basics."
+    },
     {
       "id": "4",            
       "src": "./img/feather-pen-1.png",
-      "title": "Web Development",
-      "description": "Build Project In Web Devlopment using React JS and Django Rest Framework."
+      "title": "Full-Stack Web Development",
+      "description": "Building and deploying full-stack applications using React.js for the front-end and Django Rest Framework for the back-end."
     }
   ],
   "portfolio": [
@@ -31,46 +31,46 @@
       "id": "1",
       "src": "./img/placeholder-image.png",
       "title": "Blogs",
-      "description": "Complete Full Stack Project using React JS and Django Rest Framework and complete Authentication also.",
+      "description": "A complete full-stack project built using React.js and Django Rest Framework, featuring user authentication and dynamic blog management.",
       "link": "https://github.com/mukulsar143/Blogs"
     },
     {
       "id": "2",
       "src": "./img/placeholder-image-1.png",
-      "title": "E-Commerce API's",
-      "description": "Build Ecommerce website APIs using Django Rest Framework and applied all functionalities like product lists, add to Cart, Cart and authentication.  ",
+      "title": "E-Commerce API",
+      "description": "Developed a comprehensive e-commerce API with Django Rest Framework, implementing product listings, cart functionality, and user authentication.",
       "link": "https://github.com/mukulsar143/Ecom"
     },
     {
       "id": "3",
       "src": "./img/placeholder-image-2.png",
-      "title": "Chat App API using WebSocket ",
-      "description": "Chat App Using WebSocket channels in Django Rest Framework, and complete user jwt authentication.",
+      "title": "Chat Application API using WebSockets",
+      "description": "Built a real-time chat application using WebSocket channels in Django Rest Framework, complete with JWT-based user authentication.",
       "link": "https://github.com/mukulsar143/Chat-App-Websocket"
     }
-    
+
   ],
   "testimonial": [
     {
       "id": "1",
       "count": "5",
-      "description": "I'm covered up lots of topics about python in this course and build projects also and move to getting advanced things in python.",
-      "author_name": "Udemy Certificate of Python Beginner Course ",
+      "description": "This course covered a wide range of Python topics, from basics to advanced concepts, with hands-on projects that helped solidify my understanding of the language.",
+      "author_name": "Udemy Certificate in Python Beginner Course",
       "author_designation": "Udemy"
     },
     {
       "id": "2",
       "count": "5",
-      "description": "I have Done my internship in IT base Company and learn and give it 100% in my in this job and I build some project also. ",
+      "description": "During my internship at an IT-based company, I gained valuable experience and contributed to several projects, giving my best effort in every task.",
       "author_name": "Web Developer Internship",
       "author_designation": "Aara Groups"
     },
     {
       "id": "3",
       "count": "5",
-      "description": "In this course i have done some basics about computer like MS Office and C language etc.",
-      "author_name": "Advanced Diploma in Computer Application ",
+      "description": "This course provided foundational knowledge in areas like MS Office and C programming, giving me a strong start in computer applications.",
+      "author_name": "Advanced Diploma in Computer Applications",
       "author_designation": "Unitech"
     }
-  ]
+]
 }

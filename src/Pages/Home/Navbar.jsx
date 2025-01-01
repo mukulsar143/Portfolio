@@ -69,7 +69,7 @@ function Navbar() {
               smooth={true}
               offset={-70}
               duration={500}
-              to="MyPortfolio"
+              to="mySkills"
               className="navbar--content"
             >
               Skills
@@ -99,8 +99,22 @@ function Navbar() {
               duration={500}
               to="testimonial"
               className="navbar--content"
-            >
+            > 
               Certificates & Licence
+            </Link>
+          </li>
+          <li>
+            <Link
+              onClick={closeMenu}
+              activeClass="navbar--active-content"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              to="experience"
+              className="navbar--content"
+            >
+              Experiences
             </Link>
           </li>
         </ul>
