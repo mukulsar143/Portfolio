@@ -50,7 +50,7 @@ function Navbar() {
             <ul className="flex flex-col lg:flex-row lg:space-x-8 space-y-4 lg:space-y-0 text-white text-lg font-medium">
               <li>
                 <Link
-                  to="/"
+                  to="heroSection"
                   spy={true}
                   smooth={true}
                   offset={-70}
