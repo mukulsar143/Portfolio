@@ -1,63 +1,86 @@
 import { Link } from "react-router-dom";
 import data from "../../data/index.json";
+import pics from "../../data/img/placeholder-image-1.png";
 
 export default function MyPortfolio() {
+  console.log(data);
   return (
-    <section className="portfolio--section" id="MyPortfolio">
-      <div className="portfolio--container-box">
-        <div className="portfolio--container">
-          <h2 className="section--heading">My Projects</h2>
-        </div>
-        <div>
-          <Link to='https://github.com/mukulsar143' style={{textDecoration : 'None'}}><button className="btn btn-github">
+    <section id="MyPortfolio" className="bg-gradient-to-br from-black via-gray-900 to-black py-16 px-6 lg:px-20">
+      {/* Header Section */}
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-5xl font-extrabold text-white mb-6 tracking-tight font-serif">
+          My <span className="text-gradient text-ellipsis">Projects</span>
+        </h2>
+        <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-serif">
+          Dive into some of my latest creations. From sleek frontend designs to
+          robust backend systems, these projects showcase my skills and
+          expertise as a full-stack developer.
+        </p>
+        <Link
+          to="https://github.com/mukulsar143"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="flex items-center justify-center mx-auto px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium rounded-full shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 33 33"
-              fill="none"
+              className="w-6 h-6 mr-2"
+              fill="currentColor"
+              viewBox="0 0 24 24"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M16.3333 0.166748C7.50028 0.166748 0.333252 7.33378 0.333252 16.1667C0.333252 24.9997 7.50028 32.1667 16.3333 32.1667C25.1489 32.1667 32.3333 24.9997 32.3333 16.1667C32.3333 7.33378 25.1489 0.166748 16.3333 0.166748ZM26.9016 7.54202C28.8105 9.8674 29.9559 12.8348 29.9906 16.0452C29.5394 15.9585 25.0274 15.0387 20.4808 15.6114C20.3767 15.3858 20.2899 15.1428 20.1858 14.8999C19.9081 14.2405 19.5958 13.5637 19.2834 12.9216C24.3159 10.8739 26.6066 7.9238 26.9016 7.54202ZM16.3333 2.52684C19.804 2.52684 22.9797 3.82836 25.3919 5.96285C25.1489 6.30992 23.0838 9.06914 18.2248 10.8912C15.9862 6.77846 13.5047 3.41187 13.1229 2.89126C14.1467 2.64831 15.2227 2.52684 16.3333 2.52684ZM10.5199 3.811C10.8843 4.2969 13.3138 7.68085 15.5871 11.7068C9.20093 13.4075 3.56102 13.3728 2.95364 13.3728C3.83867 9.13855 6.70201 5.61577 10.5199 3.811ZM2.65863 16.1841C2.65863 16.0452 2.65863 15.9064 2.65863 15.7676C3.24865 15.7849 9.87772 15.8717 16.6977 13.824C17.0969 14.5875 17.4613 15.3684 17.8084 16.1493C17.6348 16.2014 17.4439 16.2535 17.2704 16.3055C10.2248 18.5788 6.47642 24.7914 6.16405 25.312C3.99485 22.8999 2.65863 19.6895 2.65863 16.1841ZM16.3333 29.8413C13.1749 29.8413 10.2595 28.7654 7.95147 26.9606C8.19442 26.4574 10.971 21.1125 18.676 18.4227C18.7107 18.4053 18.7281 18.4053 18.7628 18.388C20.689 23.3684 21.47 27.5506 21.6782 28.748C20.0296 29.4595 18.2248 29.8413 16.3333 29.8413ZM23.9515 27.4986C23.8127 26.6656 23.0838 22.6743 21.2964 17.7632C25.5828 17.0864 29.3311 18.1971 29.7997 18.3533C29.2097 22.1537 27.0231 25.4335 23.9515 27.4986Z"
-                fill="currentColor"
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.207 11.387.599.111.818-.261.818-.582 0-.287-.01-1.046-.015-2.053-3.338.726-4.042-1.61-4.042-1.61-.545-1.384-1.33-1.752-1.33-1.752-1.087-.744.083-.729.083-.729 1.202.084 1.834 1.234 1.834 1.234 1.07 1.833 2.806 1.304 3.491.997.107-.774.418-1.304.76-1.605-2.665-.303-5.467-1.332-5.467-5.931 0-1.31.468-2.38 1.236-3.22-.123-.303-.536-1.521.117-3.168 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.005-.404c1.019.005 2.046.138 3.004.403 2.292-1.552 3.299-1.23 3.299-1.23.655 1.646.242 2.865.12 3.168.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.625-5.478 5.92.429.369.812 1.1.812 2.215 0 1.602-.014 2.891-.014 3.283 0 .324.217.698.823.58C20.565 21.796 24 17.303 24 12c0-6.627-5.373-12-12-12z"
               />
             </svg>
             Visit My GitHub
           </button>
-          </Link>
-        </div>
+        </Link>
       </div>
-      <div className="portfolio--section--container">
+
+      {/* Portfolio Grid */}
+      <div className="max-w-6xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
         {data?.portfolio?.map((item, index) => (
-          <div key={index} className="portfolio--section--card">
-            <div className="portfolio--section--img">
-              <img src={item.src} alt="Placeholder" />
+          <div
+            key={index}
+            className="relative bg-gray-800 rounded-3xl overflow-hidden shadow-lg group transform hover:scale-105 transition-transform duration-300"
+          >
+            {/* Project Image */}
+            <div className="relative overflow-hidden h-52 sm:h-60 md:h-72 lg:h-80">
+              <img
+                src={pics}
+                alt={item.title}
+                className="w-full h-full object-cover group-hover:opacity-75 transition-opacity duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <div className="portfolio--section--card--content">
-              <div>
-                <h3 className="portfolio--section--title" style={{marginBottom: '10px'}}>{item.title}</h3>
-                <p className="text-md">{item.description}</p>
-              </div>
-              <Link to={item.link } style={{textDecoration : 'None'}}><p className="text-sm portfolio--link">
-                Go To Page
+
+            {/* Project Content */}
+            <div className="p-6 space-y-4">
+              <h3 className="text-2xl font-sans text-white">{item.title}</h3>
+              <p className="text-gray-400 font-serif">{item.description}</p>
+              <Link
+                to={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-indigo-400 hover:text-indigo-200 text-sm font-medium"
+              >
+                Explore Project
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 20 19"
+                  className="ml-2 w-5 h-5"
                   fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
                   <path
-                    d="M4.66667 1.66675H18V15.0001M18 1.66675L2 17.6667L18 1.66675Z"
-                    stroke="currentColor"
-                    stroke-width="2.66667"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
-              </p>
               </Link>
             </div>
           </div>
