@@ -1,4 +1,5 @@
-import logo from '../../data/img/my_pic.jpg';
+import { Link } from 'react-scroll';
+import logo from '../../Pics/mypic5.png';
 import YourPDFFile from '../../Pics/Mukul-Sarkar-CV.pdf';
 
 export default function HeroSection() {
@@ -33,12 +34,12 @@ export default function HeroSection() {
             >
               Get My CV
             </button>
-            <a
-              href="#contact"
+            <Link
+              to="Contact"
               className="px-4 py-2 sm:px-6 sm:py-3 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-full shadow-lg transform transition-all duration-300 ease-in-out hover:scale-105 w-full sm:w-auto mt-4 sm:mt-0"
             >
               Contact Me
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -51,7 +52,7 @@ export default function HeroSection() {
             <img
               src={logo}
               alt="Mukul Sarkar"
-              className="relative z-20 w-64 sm:w-80 lg:w-96 xl:w-120 w-full rounded-3xl shadow-xl border-4 border-gray-700 transform transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125 hover:rotate-3"
+              className="relative z-30 max-w-7xl sm:w-90 xl:w-150 w-full rounded-3xl shadow-xl border-4 border-gray-700 transform transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-105 hover:rotate-3"
             />
           </div>
         </div>
