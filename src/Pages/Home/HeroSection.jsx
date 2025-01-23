@@ -52,7 +52,7 @@ export default function HeroSection() {
             <img
               src={logo}
               alt="Mukul Sarkar"
-              className="relative z-30 max-w-7xl sm:w-90 xl:w-150 w-full rounded-3xl shadow-xl border-4 border-gray-700 transform transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-105 hover:rotate-3"
+              className="relative z-30 max-w-7xl sm:w-90 xl:w-150 w-full rounded-2xl shadow-xl border-4 border-gray-700 transform transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-105 hover:rotate-3"
             />
           </div>
         </div>

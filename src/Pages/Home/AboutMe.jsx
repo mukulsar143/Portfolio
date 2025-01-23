@@ -1,4 +1,4 @@
-import logo from "../../Pics/mypic2.jpg";
+import logo from "../../Pics/mypic66.jpg";
 import YourPDFFile from "../../Pics/Mukul-Sarkar-CV.pdf";
 
 export default function AboutMe() {
