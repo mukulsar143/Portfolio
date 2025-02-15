@@ -63,6 +63,15 @@ export default function AboutMe() {
             Currently exploring <span className="text-blue-400 font-semibold">Data Science</span>, aiming to merge
             analytical insights with software development to create intelligent, data-driven applications.
           </p>
+          <p>
+          My full-stack expertise includes API development, and seamless
+            integration with{" "}
+            <span className="text-blue-400 font-semibold glow-effect">
+              third-party service integrations
+            </span>
+            . I excel in troubleshooting complex challenges and delivering
+            robust, maintainable code.
+          </p>
         </motion.div>
 
         {/* Action Buttons */}
