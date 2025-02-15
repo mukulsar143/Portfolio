@@ -1,83 +1,90 @@
-import logo from "../../Pics/mypic66.jpg";
-import YourPDFFile from "../../Pics/Mukul-Sarkar-CV.pdf";
+import { motion } from 'framer-motion';
+import YourPDFFile from '../../Pics/Mukul-Sarkar-CV.pdf';
+import { Link } from 'react-router-dom';
 
 export default function AboutMe() {
-  const openPdf = () => {
-    window.open(YourPDFFile, "_blank"); // Open the PDF file in a new tab
-  };
-
+    const openPdf = () => {
+      window.open(YourPDFFile, '_blank'); // Open the PDF file in a new tab
+    };
+  
   return (
     <section
       id="AboutMe"
-      className="bg-gradient-to-br from-black via-gray-900 to-black py-20 px-6 md:px-12 lg:px-24"
+      className="relative bg-gradient-to-br from-black via-gray-900 to-black py-20 px-6 md:px-12 lg:px-24 text-white overflow-hidden"
     >
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-        {/* Image Section */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end">
-          <div className="relative w-72 h-72 md:w-96 md:h-96 lg:w-[30rem] lg:h-[30rem]">
-            {/* Circular Glow with Background Gradient */}
-            <div className="absolute -inset-4 bg-gradient-to-br from-purple-600 to-blue-500 rounded-full blur-3xl opacity-50"></div>
-            {/* Profile Image */}
-            <img
-              src={logo}
-              alt="Mukul Sarkar"
-              className="relative z-20 w-full h-full object-cover rounded-3xl shadow-xl border-4 border-gray-700 transform transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-125 hover:rotate-3"
-            />
-          </div>
-        </div>
+      {/* Background Glow Effects */}
+      <div className="absolute -top-40 left-10 w-96 h-96 bg-purple-700 opacity-30 blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-blue-700 opacity-30 blur-3xl animate-ping"></div>
+      
+      <div className="container mx-auto flex flex-col items-center text-center lg:text-left lg:items-start max-w-5xl">
+        {/* Heading Animation */}
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400 tracking-wide"
+        >
+          About <span className="text-purple-500">Me</span>
+        </motion.h2>
 
-        {/* Content Section */}
-        <div className="lg:col-span-6 text-center lg:text-left">
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-300 tracking-wide mb-6 font-bold">
-            About <span className="text-purple-500">Me</span>
-          </h2>
-          <p className="text-lg text-gray-300 leading-relaxed mb-6">
-            I am a{" "}
-            <strong className="text-purple-400">Software Engineer</strong>{" "}
-            specializing in backend development with Python and Django, with
-            extensive experience in full-stack projects. My expertise spans
-            creating dynamic web applications using{" "}
-            <strong className="text-purple-400">React.js</strong> on the
-            frontend and Django Rest Framework for scalable backend solutions.
-            Additionally, I have integrated various third-party APIs to enhance
-            functionality and optimize workflows.
-          </p>
-          <p className="text-lg text-gray-300 leading-relaxed mb-6">
-            I thrive on building robust and scalable solutions while improving
-            functionality by implementing core features. My work reflects a deep
-            understanding of{" "}
-            <span className="text-purple-400">modern software development</span>{" "}
-            practices, containerized applications, and database management.
-          </p>
-          <p className="text-lg text-gray-300 leading-relaxed mb-6">
-            In my full-stack projects, I have successfully handled end-to-end
-            development, including creating intuitive user interfaces, crafting
-            RESTful APIs, and ensuring seamless integrations with third-party
-            services. My ability to troubleshoot complex issues and deliver
-            efficient solutions highlights my proficiency in the software
-            lifecycle.
-          </p>
-          <p className="text-lg text-gray-300 leading-relaxed mb-6">
-            Currently working as a Python Developer, I actively contribute to
-            product efficiency and scalability while exploring the exciting
-            field of data science.
-          </p>
+        {/* Subheading */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2 }}
+          className="mt-4 text-lg text-gray-300 leading-relaxed font-mono"
+        >
+          Crafting robust, scalable applications with precision and creativity.
+        </motion.p>
 
-          <div className="flex flex-col md:flex-row justify-center lg:justify-start gap-4">
-            <button
-              className="px-8 py-3 bg-purple-600 text-white text-lg font-medium rounded-lg shadow-md hover:bg-purple-700 transform hover:-translate-y-1 transition duration-300 w-full md:w-auto"
-              onClick={openPdf}
-            >
-              Download CV
-            </button>
-            <a
-              href="#Contact"
-              className="px-8 py-3 bg-transparent border-2 border-purple-600 text-purple-600 text-lg font-medium rounded-lg shadow-md hover:bg-purple-600 hover:text-white transform hover:-translate-y-1 transition duration-300 w-full md:w-auto"
-            >
-              Contact Me
-            </a>
-          </div>
-        </div>
+        {/* Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5 }}
+          className="mt-6 space-y-6 text-gray-400 font-sans text-lg"
+        >
+          <p>
+            As a <span className="text-purple-400 font-semibold">Software Engineer</span>, my expertise lies in
+            backend development, specializing in Python and Django. I architect scalable, secure applications while
+            optimizing performance.
+          </p>
+          <p>
+            I have experience building full-stack applications using
+            <span className="text-blue-400 font-semibold"> React.js</span> on the frontend, integrating dynamic UIs with
+            robust REST APIs powered by Django Rest Framework.
+          </p>
+          <p>
+            Passionate about automation and efficiency, I utilize
+            <span className="text-purple-400 font-semibold"> Docker & DevOps</span> methodologies to streamline deployment
+            and CI/CD pipelines.
+          </p>
+          <p>
+            Currently exploring <span className="text-blue-400 font-semibold">Data Science</span>, aiming to merge
+            analytical insights with software development to create intelligent, data-driven applications.
+          </p>
+        </motion.div>
+
+        {/* Action Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, delay: 0.6 }}
+          className="mt-6 flex flex-col sm:flex-row gap-6"
+        >
+          <button
+            onClick={openPdf}
+            className="px-8 py-3 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-full drop-shadow-lg transition-all transform hover:scale-105 hover:shadow-purple-500/70 animate-button-glow"
+          >
+            📄 Get My CV
+          </button>
+          <Link
+            to="Contact"
+            className="px-8 py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-full drop-shadow-lg transition-all transform hover:scale-105 hover:shadow-blue-500/70 animate-button-glow"
+          >
+            ✉️ Contact Me
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

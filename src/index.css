@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  @keyframes text-glow {
+    0%, 100% { text-shadow: 0 0 8px rgba(128, 0, 255, 0.8); }
+    50% { text-shadow: 0 0 18px rgba(128, 0, 255, 1); }
+  }
+
+  .animate-glow {
+    animation: text-glow 2s infinite alternate;
+  }
+
+  @keyframes button-glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(128, 0, 255, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(128, 0, 255, 1); }
+  }
+
+  .animate-button-glow {
+    animation: button-glow 2.5s infinite alternate ease-in-out;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .animate-float {
+    animation: float 3s infinite ease-in-out;
+  }
+}

@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
 
 export default function ContactMe() {
   const [FirstName, setFirstName] = useState("");
@@ -16,23 +19,12 @@ export default function ContactMe() {
     }
     try {
       const response = await fetch("http://127.0.0.1:8000/contact/", {
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         method: "POST",
-        body: JSON.stringify({
-          first_name: FirstName,
-          last_name: LastName,
-          email: email,
-          phone: phone,
-          topic: topic,
-          message: message,
-        }),
+        body: JSON.stringify({ first_name: FirstName, last_name: LastName, email, phone, topic, message }),
       });
       if (response.ok) {
-        const data = await response.json();
-        console.log("Submission successful: ", data);
-        alert("Message has been sent successfully!");
+        alert("Message sent successfully!");
         setFirstName("");
         setLastName("");
         setEmail("");
@@ -40,7 +32,6 @@ export default function ContactMe() {
         setTopic("");
         setMessage("");
       } else {
-        console.error("Failed to submit the form");
         alert("There was an issue, please try again.");
       }
     } catch (error) {
@@ -49,151 +40,101 @@ export default function ContactMe() {
   };
 
   return (
-    <section
+    <section className="relative flex flex-col items-center justify-center min-h-screen bg-black overflow-hidden">
+      {/* Particle Background */}
+      <Particles
       id="Contact"
-      className="bg-gradient-to-t from-gray-800 to-black text-white py-16 px-6 lg:px-20"
-    >
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-center mb-8 tracking-tight font-serif text-shadow-md">
-          Contact Me
-        </h2>
-        <div className="bg-gradient-to-r from-gray-700 to-gray-600 shadow-xl rounded-lg p-8 md:p-12 space-y-8">
-          <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label
-                  htmlFor="first-name"
-                  className="block text-lg font-medium text-white mb-2"
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  id="first-name"
-                  name="first-name"
-                  className="contact-input px-6 py-3 rounded-lg bg-white text-black border-2 border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 w-full"
-                  required
-                  value={FirstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="last-name"
-                  className="block text-lg font-medium text-white mb-2"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  id="last-name"
-                  name="last-name"
-                  className="contact-input px-6 py-3 rounded-lg bg-white text-black border-2 border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 w-full"
-                  required
-                  value={LastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                />
-              </div>
-            </div>
+   init={async (engine) => {
+     await loadFull(engine);
+   }}
+   options={{
+     background: { color: "#000" },
+     particles: {
+       number: { value: 80 },
+       shape: { type: "circle" },
+       opacity: { value: 0.5 },
+       size: { value: 3 },
+       move: { enable: true, speed: 2 },
+     },
+   }}
+   className="absolute inset-0 z-0"
+ />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-lg font-medium text-white mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="contact-input px-6 py-3 rounded-lg bg-white text-black border-2 border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 w-full"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-lg font-medium text-white mb-2"
-                >
-                  Phone Number
-                </label>
-                <input
-                  type="text"
-                  id="phone"
-                  name="phone"
-                  className="contact-input px-6 py-3 rounded-lg bg-white text-black border-2 border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 w-full"
-                  required
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <label
-                htmlFor="choose-topic"
-                className="block text-lg font-medium text-white mb-2"
-              >
-                Choose a Topic
-              </label>
-              <select
-                id="choose-topic"
-                className="contact-input px-6 py-3 rounded-lg bg-white text-black border-2 border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 w-full"
-                value={topic}
-                onChange={(e) => setTopic(e.target.value)}
-              >
-                <option>Select One...</option>
-                <option>General Inquiry</option>
-                <option>Product Support</option>
-                <option>Partnership</option>
-              </select>
-            </div>
-
-            <div className="mt-6">
-              <label
-                htmlFor="message"
-                className="block text-lg font-medium text-white mb-2"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                className="contact-input px-6 py-3 rounded-lg bg-white text-black border-2 border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-300 w-full"
-                rows="6"
-                placeholder="Type your message here..."
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
-            </div>
-
-            <div className="flex items-center mt-6">
-              <input
-                type="checkbox"
-                required
-                name="checkbox"
-                id="checkbox"
-                className="form-checkbox text-gray-500"
-              />
-              <span className="ml-2 text-sm text-white">
-                I accept the terms and conditions
-              </span>
-            </div>
-
-            <div className="text-center mt-8">
-              <button
-                type="submit"
-                className="btn-submit px-10 py-3 rounded-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-300"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+      
+      {/* Animated Background Glow */}
+      <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-center mb-16"
+        ></motion.div>
+      
+      {/* Heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-6xl font-extrabold text-center mb-12 tracking-wide font-mono relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 animate-pulse"
+      >
+        Contact <span className="text-white">Me</span>
+      </motion.h2>
+      
+      {/* Contact Form */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 max-w-4xl mx-auto bg-gray-900 bg-opacity-90 p-10 rounded-3xl shadow-2xl backdrop-blur-lg border border-gray-700 hover:shadow-purple-400 transition-all duration-500"
+      >
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <input type="text" placeholder="First Name" value={FirstName} onChange={(e) => setFirstName(e.target.value)} className="input-field" required />
+            <input type="text" placeholder="Last Name" value={LastName} onChange={(e) => setLastName(e.target.value)} className="input-field" required />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="input-field" required />
+            <input type="text" placeholder="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} className="input-field" required />
+          </div>
+          <select value={topic} onChange={(e) => setTopic(e.target.value)} className="input-field" required>
+            <option>Select a Topic</option>
+            <option>General Inquiry</option>
+            <option>Product Support</option>
+            <option>Partnership</option>
+          </select>
+          <textarea placeholder="Your Message" value={message} onChange={(e) => setMessage(e.target.value)} className="input-field" rows="6" required></textarea>
+          <div className="flex items-center">
+            <input type="checkbox" required className="form-checkbox" />
+            <span className="ml-2 text-sm text-white">I accept the terms and conditions</span>
+          </div>
+          <motion.button
+            type="submit"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold text-lg rounded-full hover:shadow-xl transition-all"
+          >
+            Submit
+          </motion.button>
+        </form>
+      </motion.div>
+      
+      <style jsx>{`
+        .input-field {
+          width: 100%;
+          padding: 12px;
+          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
+          transition: all 0.3s;
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .input-field:focus {
+          outline: none;
+          border-color: #6366f1;
+          background: rgba(255, 255, 255, 0.2);
+          box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+      `}</style>
     </section>
   );
 }

@@ -1,61 +1,99 @@
 import { Link } from 'react-scroll';
-import logo from '../../Pics/mypic5.png';
-import YourPDFFile from '../../Pics/Mukul-Sarkar-CV.pdf';
+import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   const openPdf = () => {
-    window.open(YourPDFFile, '_blank'); // Open the PDF file in a new tab
+    window.open('/Mukul-Sarkar-CV.pdf', '_blank');
   };
 
   return (
     <section
       id="heroSection"
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white flex items-center justify-center overflow-y-auto"
+      className="relative min-h-screen flex items-center justify-center bg-black text-white overflow-hidden"
     >
-      <div className="container mx-auto px-6 lg:px-16 flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-16">
-        {/* Left Content */}
-        <div className="flex-1 text-center lg:text-left">
-          <p className="text-sm sm:text-lg text-purple-400 font-medium uppercase tracking-wider font-extralight hover:text-white transform transition-all duration-300 ease-in-out hover:scale-105">
-            Hey, I'm Mukul
-          </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mt-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
-              Software Engineer
-            </span>
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 mt-4 leading-relaxed font-mono">
-            Backend Engineer | Python Developer | Docker <br />
-            Aspiring Data Scientist
-          </p>
-          <div className="mt-6 space-x-4 flex flex-col sm:flex-row items-center sm:items-start">
-            <button
-              onClick={openPdf}
-              className="px-4 py-2 sm:px-6 sm:py-3 bg-purple-600 hover:bg-purple-500 text-white font-medium rounded-full shadow-lg transform transition-all duration-300 ease-in-out hover:scale-105 w-full sm:w-auto"
-            >
-              Get My CV
-            </button>
-            <Link
-              to="Contact"
-              className="px-4 py-2 sm:px-6 sm:py-3 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-full shadow-lg transform transition-all duration-300 ease-in-out hover:scale-105 w-full sm:w-auto mt-4 sm:mt-0"
-            >
-              Contact Me
-            </Link>
-          </div>
-        </div>
+      {/* Background Animated Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-black to-gray-950 opacity-90 animate-bg-wave"></div>
 
-        {/* Right Content */}
-        <div className="flex-1 flex justify-center">
-          <div className="relative">
-            {/* Circular Glow */}
-            <div className="absolute -inset-2 bg-gradient-to-br from-purple-600 to-blue-500 rounded-t-2xl blur-3xl opacity-50"></div>
-            {/* Profile Image */}
-            <img
-              src={logo}
-              alt="Mukul Sarkar"
-              className="relative z-30 max-w-7xl sm:w-90 xl:w-150 w-full rounded-2xl shadow-xl border-4 border-gray-700 transform transition-all duration-300 ease-in-out hover:scale-110 hover:brightness-105 hover:rotate-3"
-            />
-          </div>
-        </div>
+      {/* Floating Neon Orbs */}
+      <div className="absolute top-20 left-24 w-64 h-64 bg-purple-900 rounded-full blur-[120px] opacity-50 animate-pulse-slow"></div>
+      <div className="absolute bottom-16 right-20 w-72 h-72 bg-blue-900 rounded-full blur-[120px] opacity-50 animate-fade-in-out"></div>
+
+      <div className="container mx-auto px-6 lg:px-16 flex flex-col items-center text-center relative z-10">
+        {/* Animated Intro Text */}
+        <motion.p 
+          initial={{ opacity: 0, y: -10 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-lg text-purple-400 font-semibold uppercase tracking-widest drop-shadow-md animate-text-glow"
+        >
+          Hey, I'm Mukul 👋
+        </motion.p>
+
+        {/* Animated Title with 3D Bounce & Glow */}
+        <motion.h1 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          className="text-5xl sm:text-6xl md:text-7xl font-extrabold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500 drop-shadow-lg animate-text-bounce"
+        >
+          Software Engineer
+        </motion.h1>
+
+        {/* Glowing Subtitle with Wave Effect */}
+        <motion.p
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
+          className="text-xl sm:text-2xl text-gray-300 mt-4 font-mono drop-shadow-md animate-text-wave"
+        >
+          Backend Engineer | Python Developer | Docker | AI Enthusiast
+        </motion.p>
+
+        {/* Buttons with Flickering Glow & Scaling Hover */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, delay: 0.6 }}
+          className="mt-6 flex flex-col sm:flex-row gap-6"
+        >
+          <button
+            onClick={openPdf}
+            className="px-8 py-3 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-full drop-shadow-lg transition-all transform hover:scale-105 animate-button-flicker"
+          >
+            📄 Get My CV
+          </button>
+          <Link
+            to="Contact"
+            className="px-8 py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-full drop-shadow-lg transition-all transform hover:scale-105 animate-button-flicker"
+          >
+            ✉️ Contact Me
+          </Link>
+        </motion.div>
+      </div>
+
+      {/* Floating Particles with Slow Drift */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(40)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-[4px] h-[4px] bg-white rounded-full opacity-15"
+            initial={{
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              opacity: 0.3,
+              scale: Math.random() * 1.2,
+            }}
+            animate={{
+              opacity: [0.2, 0.8, 0.2],
+              scale: [0.8, 1.2, 0.8],
+            }}
+            transition={{
+              duration: Math.random() * 5 + 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
       </div>
     </section>
   );
