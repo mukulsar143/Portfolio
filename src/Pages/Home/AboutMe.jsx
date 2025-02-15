@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import YourPDFFile from '../../Pics/Mukul-Sarkar-CV.pdf';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 
 export default function AboutMe() {
     const openPdf = () => {
