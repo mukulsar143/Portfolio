@@ -1,9 +1,10 @@
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
+import YourPDFFile from '../../Pics/Mukul-Sarkar-CV.pdf';
 
 export default function HeroSection() {
   const openPdf = () => {
-    window.open('/Mukul-Sarkar-CV.pdf', '_blank');
+    window.open(YourPDFFile, '_blank');
   };
 
   return (
@@ -46,7 +47,7 @@ export default function HeroSection() {
           transition={{ duration: 1.2, delay: 0.4, ease: "easeInOut" }}
           className="text-xl sm:text-2xl text-gray-300 mt-4 font-mono drop-shadow-md animate-text-wave"
         >
-          Backend Engineer | Python Developer | Docker | AI Enthusiast
+          Backend Engineer | Python Developer | Docker | AI Enthusiast | <br /> Full Stack Developer
         </motion.p>
 
         {/* Buttons with Flickering Glow & Scaling Hover */}
