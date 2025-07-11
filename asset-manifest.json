@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.6fde048e.css",
-    "main.js": "/Portfolio/static/js/main.c12bcaaf.js",
+    "main.css": "/Portfolio/static/css/main.d193f8d2.css",
+    "main.js": "/Portfolio/static/js/main.3b5f40d2.js",
+    "static/media/Software-Engineer.pdf": "/Portfolio/static/media/Software-Engineer.80da581b33ef022aeee9.pdf",
     "static/media/placeholder-image-1.png": "/Portfolio/static/media/placeholder-image-1.ce5b7201aa87141e4d96.png",
-    "static/media/Mukul-Sarkar-CV.pdf": "/Portfolio/static/media/Mukul-Sarkar-CV.3f0783278f038f68a8a7.pdf",
     "static/media/python.jpg": "/Portfolio/static/media/python.57173d371c618046ec5a.jpg",
     "index.html": "/Portfolio/index.html",
-    "main.6fde048e.css.map": "/Portfolio/static/css/main.6fde048e.css.map",
-    "main.c12bcaaf.js.map": "/Portfolio/static/js/main.c12bcaaf.js.map"
+    "main.d193f8d2.css.map": "/Portfolio/static/css/main.d193f8d2.css.map",
+    "main.3b5f40d2.js.map": "/Portfolio/static/js/main.3b5f40d2.js.map"
   },
   "entrypoints": [
-    "static/css/main.6fde048e.css",
-    "static/js/main.c12bcaaf.js"
+    "static/css/main.d193f8d2.css",
+    "static/js/main.3b5f40d2.js"
   ]
 }
