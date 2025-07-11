@@ -1,6 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
-import logo from '../../Pics/python.jpg';
+import logo from "../../Pics/python.jpg";
 
 export default function ExperiencesSection() {
   const experiences = [
@@ -33,59 +32,87 @@ export default function ExperiencesSection() {
   return (
     <section
       id="experience"
-      className="relative py-16 px-6 lg:px-20 bg-black text-white overflow-hidden"
+      className="relative bg-gray-900 py-24 px-6 lg:px-24 overflow-hidden"
     >
-      {/* Animated Background */}
-      <motion.div 
-        className="absolute inset-0 bg-gradient-to-br from-purple-900 via-black to-gray-900 opacity-80 animate-pulse"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-      ></motion.div>
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.05)_0%,_transparent_70%)] pointer-events-none"></div>
+      
+      {/* Animated Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-black to-gray-900 opacity-90 animate-gradient"></div>
 
-      <motion.h2
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-5xl font-extrabold text-center mb-16 tracking-wide font-serif text-shadow-lg relative z-10"
-      >
-        My <span className="text-purple-400">Professional Experiences</span>
-      </motion.h2>
+      <div className="container mx-auto px-6 lg:px-20 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-5xl font-bold text-white mb-6 tracking-tight font-sans">
+            Professional <span className="text-indigo-400">Experience</span>
+          </h2>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+            A journey through my professional roles, showcasing expertise in building innovative and scalable solutions.
+          </p>
+        </motion.div>
 
-      {/* Experience Cards Grid */}
-      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-        {experiences.map((experience, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
-            whileHover={{ scale: 1.1, rotate: 2 }}
-            className="experience-card bg-gray-800 text-white rounded-xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:shadow-3xl hover:bg-gray-700 hover:scale-105 hover:border-purple-500 border-2"
-          >
-            <div className="p-6 space-y-6">
+        {/* Experience Cards Grid */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {experiences.map((experience, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
+              className="relative bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow-lg group hover:shadow-xl transition-all duration-300 p-8"
+            >
               {/* Icon and Title */}
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-4 mb-6">
+                <motion.img
+                  src={experience.icon}
+                  alt={experience.title}
+                  className="w-12 h-12 rounded-lg object-cover border-2 border-indigo-400"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                />
                 <div>
-                  <h3 className="text-2xl font-bold font-sans text-purple-300">
+                  <h3 className="text-xl font-semibold text-white group-hover:text-indigo-300 transition-colors duration-300">
                     {experience.title}
                   </h3>
-                  <p className="text-lg text-gray-400 font-serif">
+                  <p className="text-sm text-gray-400 font-light">
                     {experience.company}
                   </p>
                 </div>
               </div>
+
               {/* Date and Description */}
-              <p className="text-lg text-gray-300 font-light italic">
+              <p className="text-sm text-gray-400 font-light italic mb-4">
                 {experience.period}
               </p>
-              <p className="text-base text-gray-200 leading-relaxed font-mono">
+              <p className="text-gray-300 text-sm font-light leading-relaxed">
                 {experience.description}
               </p>
-            </div>
-          </motion.div>
-        ))}
+
+              {/* Hover Glow Effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+            </motion.div>
+          ))}
+        </div>
       </div>
+
+      {/* Background Animation */}
+      <style jsx>{`
+        @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .animate-gradient {
+          background: linear-gradient(270deg, rgba(79, 70, 229, 0.3), rgba(0, 0, 0, 0.9), rgba(79, 70, 229, 0.3));
+          background-size: 400% 400%;
+          animation: gradient 8s ease infinite;
+        }
+      `}</style>
     </section>
   );
 }

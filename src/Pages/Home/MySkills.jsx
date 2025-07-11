@@ -5,79 +5,86 @@ import pics from "../../data/img/feather-pen-2.png";
 export default function MySkills() {
   return (
     <section
-      className="relative bg-gradient-to-br from-black via-gray-900 to-black py-20 overflow-hidden"
+      className="relative bg-gradient-to-br from-gray-900 to-black py-24 overflow-hidden"
       id="mySkills"
     >
-      {/* Background Animation */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(72,85,99,0.2)_0%,_rgba(0,0,0,1)_100%)]"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-transparent overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.05)_0%,_transparent_70%)] pointer-events-none"></div>
+      
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-purple-500 rounded-full opacity-50"
+            className="absolute w-1.5 h-1.5 bg-indigo-300 rounded-full opacity-30"
             initial={{ y: "100vh", opacity: 0 }}
-            animate={{ y: "-10vh", opacity: 1 }}
-            transition={{ duration: Math.random() * 5 + 3, repeat: Infinity, ease: "linear" }}
-            style={{ left: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 5}s` }}
+            animate={{ y: "-10vh", opacity: [0, 0.5, 0] }}
+            transition={{
+              duration: Math.random() * 6 + 4,
+              repeat: Infinity,
+              ease: "easeOut",
+              delay: Math.random() * 2,
+            }}
+            style={{ left: `${Math.random() * 100}%` }}
           />
         ))}
       </div>
 
-      <div className="container mx-auto px-6 lg:px-16 relative z-10">
-        {/* Section Title */}
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+      <div className="container mx-auto px-6 lg:px-20 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2 className="text-5xl font-extrabold tracking-tight text-gray-300 font-serif animate-fade-in">
+          <h2 className="text-5xl font-bold text-white font-sans tracking-tight">
             My Expertise
           </h2>
-          <p className="mt-4 text-gray-300 text-lg max-w-2xl mx-auto font-sans animate-slide-up">
-            A showcase of the tools and technologies I master to build innovative and scalable solutions.
+          <p className="mt-4 text-gray-300 text-lg max-w-3xl mx-auto font-light leading-relaxed">
+            Crafting innovative, scalable, and high-performance solutions with cutting-edge tools and technologies.
           </p>
         </motion.div>
 
-        {/* Skill Cards */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Skills Grid */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {data?.skills?.map((item, index) => (
             <motion.div
               key={index}
-              className="relative group bg-gray-800 bg-opacity-50 backdrop-blur-lg rounded-2xl shadow-xl hover:shadow-2xl transform transition duration-500 hover:-translate-y-3 p-6 hover:scale-105 overflow-hidden"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative group bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 hover:bg-gray-700/90"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              {/* Skill Icon with Background */}
+              {/* Skill Icon */}
               <motion.div
-                className="flex items-center justify-center mb-6 animate-bounce-slow"
-                initial={{ scale: 0.5, opacity: 0 }}
+                className="flex items-center justify-center mb-6"
+                initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
               >
-                <div className="w-20 h-20 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
                   <img
                     src={item.icon || pics}
                     alt={item.title}
-                    className="w-12 h-12 object-contain"
+                    className="w-10 h-10 object-contain"
                   />
                 </div>
               </motion.div>
 
-              {/* Card Content */}
-              <motion.div className="text-center">
-                <h3 className="text-xl font-bold text-gray-100 group-hover:text-purple-400 transition font-serif animate-slide-up">
+              {/* Skill Content */}
+              <div className="text-center">
+                <h3 className="text-xl font-semibold text-white group-hover:text-indigo-300 transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 mt-3 font-sans animate-fade-in">
+                <p className="mt-3 text-gray-400 text-sm leading-relaxed font-light">
                   {item.description}
                 </p>
-              </motion.div>
+              </div>
 
-              {/* Floating Glow Effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-purple-700 to-indigo-700 opacity-0 group-hover:opacity-20 transition duration-500 blur-lg"></div>
+              {/* Hover Glow Effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-indigo-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
             </motion.div>
           ))}
         </div>

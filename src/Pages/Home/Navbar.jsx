@@ -17,11 +17,11 @@ function Navbar() {
 
   // Navbar animation
   const navbarVariants = {
-    hidden: { y: -100, opacity: 0 },
+    hidden: { y: -50, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -31,9 +31,9 @@ function Navbar() {
     visible: {
       x: 0,
       opacity: 1,
-      transition: { type: "spring", stiffness: 100, damping: 20 },
+      transition: { type: "spring", stiffness: 120, damping: 20 },
     },
-    exit: { x: "100%", opacity: 0, transition: { duration: 0.3 } },
+    exit: { x: "100%", opacity: 0, transition: { duration: 0.4 } },
   };
 
   return (
@@ -43,20 +43,20 @@ function Navbar() {
       animate="visible"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-gray-900/80 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
+          ? "bg-gray-900/90 backdrop-blur-lg shadow-md"
+          : "bg-gray-900/50"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <h1 className="text-3xl font-extrabold text-white tracking-wide">
-              Portfolio<span className="text-purple-300">.</span>
+            <h1 className="text-2xl font-semibold text-white tracking-tight">
+              Mukul Sarkar<span className="text-blue-400">.</span>
             </h1>
           </motion.div>
 
@@ -64,17 +64,14 @@ function Navbar() {
           <motion.button
             onClick={toggleNav}
             className="lg:hidden text-white focus:outline-none"
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <motion.svg
-              className="h-8 w-8"
+            <svg
+              className="h-7 w-7"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              initial={{ rotate: 0 }}
-              animate={{ rotate: navActive ? 180 : 0 }}
-              transition={{ duration: 0.4 }}
             >
               <motion.path
                 strokeLinecap="round"
@@ -85,19 +82,19 @@ function Navbar() {
                 }
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.3 }}
               />
-            </motion.svg>
+            </svg>
           </motion.button>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-8 text-white text-lg font-medium">
+          <div className="hidden lg:flex lg:items-center lg:space-x-10">
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
             >
-              <ul className="flex flex-col lg:flex-row lg:space-x-8 space-y-4 lg:space-y-0 text-white text-lg font-medium">
+              <ul className="flex space-x-8 text-gray-200 text-base font-medium">
                 <li>
                   <Link
                     to="heroSection"
@@ -105,8 +102,7 @@ function Navbar() {
                     smooth={true}
                     offset={-70}
                     duration={500}
-                    onClick={closeMenu}
-                    className="cursor-pointer hover:text-purple-300 transition-all duration-300"
+                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
                   >
                     Home
                   </Link>
@@ -118,8 +114,7 @@ function Navbar() {
                     smooth={true}
                     offset={-70}
                     duration={500}
-                    onClick={closeMenu}
-                    className="cursor-pointer hover:text-purple-300 transition-all duration-300"
+                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
                   >
                     Skills
                   </Link>
@@ -131,10 +126,9 @@ function Navbar() {
                     smooth={true}
                     offset={-70}
                     duration={500}
-                    onClick={closeMenu}
-                    className="cursor-pointer hover:text-purple-300 transition-all duration-300"
+                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
                   >
-                    About Me
+                    About
                   </Link>
                 </li>
                 <li>
@@ -144,8 +138,7 @@ function Navbar() {
                     smooth={true}
                     offset={-70}
                     duration={500}
-                    onClick={closeMenu}
-                    className="cursor-pointer hover:text-purple-300 transition-all duration-300"
+                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
                   >
                     Certificates
                   </Link>
@@ -157,68 +150,66 @@ function Navbar() {
                     smooth={true}
                     offset={-70}
                     duration={500}
-                    onClick={closeMenu}
-                    className="cursor-pointer hover:text-purple-300 transition-all duration-300"
+                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
                   >
-                    Experiences
+                    Experience
                   </Link>
                 </li>
               </ul>
             </motion.div>
-          </div>
 
-          {/* Contact Button */}
-          <motion.div
-            className="hidden lg:block"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Link
-              to="Contact"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              className="bg-purple-600 hover:bg-purple-500 text-white px-5 py-2 rounded-full font-medium shadow-md transition-all duration-300"
+            {/* Contact Button */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
             >
-              Contact Me
-            </Link>
-          </motion.div>
+              <Link
+                to="Contact"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium shadow-md transition-all duration-300 hover:shadow-lg"
+              >
+                Contact
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Menu Animation */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {navActive && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            className="fixed inset-0 bg-gray-900/95 z-40 lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="flex flex-col items-center bg-gradient-to-r from-gray-900 via-indigo-800 to-blue-900 p-6 space-y-6 absolute top-16 w-full text-white"
+              className="flex flex-col items-center justify-center h-full p-6 space-y-8 text-white"
               variants={menuVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
             >
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
               >
-                <ul className="space-y-4 text-white text-lg font-medium">
+                <ul className="space-y-6 text-gray-200 text-lg font-medium">
                   <li>
                     <Link
-                      to="/"
+                      to="heroSection"
                       spy={true}
                       smooth={true}
                       offset={-70}
                       duration={500}
                       onClick={closeMenu}
-                      className="cursor-pointer hover:text-purple-300 transition-all duration-300"
+                      className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
                     >
                       Home
                     </Link>
@@ -231,7 +222,7 @@ function Navbar() {
                       offset={-70}
                       duration={500}
                       onClick={closeMenu}
-                      className="cursor-pointer hover:text-purple-300 transition-all duration-300"
+                      className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
                     >
                       Skills
                     </Link>
@@ -244,9 +235,9 @@ function Navbar() {
                       offset={-70}
                       duration={500}
                       onClick={closeMenu}
-                      className="cursor-pointer hover:text-purple-300 transition-all duration-300"
+                      className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
                     >
-                      About Me
+                      About
                     </Link>
                   </li>
                   <li>
@@ -257,7 +248,7 @@ function Navbar() {
                       offset={-70}
                       duration={500}
                       onClick={closeMenu}
-                      className="cursor-pointer hover:text-purple-300 transition-all duration-300"
+                      className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
                     >
                       Certificates
                     </Link>
@@ -270,15 +261,15 @@ function Navbar() {
                       offset={-70}
                       duration={500}
                       onClick={closeMenu}
-                      className="cursor-pointer hover:text-purple-300 transition-all duration-300"
+                      className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
                     >
-                      Experiences
+                      Experience
                     </Link>
                   </li>
                 </ul>
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
@@ -288,10 +279,10 @@ function Navbar() {
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  className="bg-purple-600 hover:bg-purple-500 text-white px-5 py-2 rounded-full font-medium shadow-md transition-all duration-300"
                   onClick={closeMenu}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium shadow-md transition-all duration-300 hover:shadow-lg"
                 >
-                  Contact Me
+                  Contact
                 </Link>
               </motion.div>
             </motion.div>

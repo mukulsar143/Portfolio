@@ -47,7 +47,15 @@
       "title": "Chat Application API using WebSockets",
       "description": "Built a real-time chat application using WebSocket channels in Django Rest Framework, complete with JWT-based user authentication.",
       "link": "https://github.com/mukulsar143/Chat-App-Websocket"
-    }
+    },
+    {
+    "id": "4",
+    "src": "./img/placeholder-image-3.png",
+    "title": "Smart Todo App",
+    "description": "Developed a Smart Todo App leveraging AI integrations to prioritize tasks, suggest deadlines, and optimize workflows. Built with React for the frontend and Django Rest Framework for the backend, incorporating Open AI APIs for intelligent task management.",
+    "link": "https://github.com/mukulsar143/Smart-Todo-App",
+    "category": "AI-Powered Productivity"
+  }
 
   ],
   "testimonial": [
