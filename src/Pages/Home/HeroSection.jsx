@@ -1,100 +1,126 @@
-import { Link } from 'react-scroll';
-import { motion } from 'framer-motion';
-import YourPDFFile from '../../Pics/Software-Engineer.pdf';
+import { Link } from "react-scroll";
+import { motion } from "framer-motion";
+import YourPDFFile from "../../Pics/Mukul_Sarkar_CV3.pdf";
 
 export default function HeroSection() {
-  const openPdf = () => {
-    window.open(YourPDFFile, '_blank');
-  };
+  const openPdf = () => window.open(YourPDFFile, "_blank");
 
   return (
     <section
       id="heroSection"
-      className="relative min-h-screen flex items-center justify-center bg-gray-900 text-white overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-[#0B0F19] text-white overflow-hidden"
     >
-      {/* Subtle Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-blue-900 opacity-95"></div>
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0B0F19] via-[#0E1324] to-[#111827]" />
 
-      {/* Minimal Background Orbs */}
-      <div className="absolute top-10 left-10 w-48 h-48 bg-blue-500 rounded-full blur-[80px] opacity-30 animate-pulse"></div>
-      <div className="absolute bottom-10 right-10 w-56 h-56 bg-indigo-500 rounded-full blur-[80px] opacity-30 animate-pulse"></div>
+      {/* Glow Orbs */}
+      <div className="absolute -top-20 -left-20 w-[300px] h-[300px] bg-blue-600/30 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-indigo-600/30 rounded-full blur-[140px]" />
 
-      <div className="container mx-auto px-6 lg:px-20 flex flex-col items-center text-center relative z-10">
-        {/* Intro Text */}
+      <div className="relative z-10 max-w-6xl px-6 mx-auto text-center">
+        {/* Intro */}
         <motion.p
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-base md:text-lg text-blue-300 font-medium uppercase tracking-wider"
+          transition={{ duration: 0.6 }}
+          className="text-sm md:text-base uppercase tracking-[0.25em] text-blue-400"
         >
-          Hello, I'm Mukul
+          Hi, I’m Mukul Sarkar
         </motion.p>
 
-        {/* Main Title */}
+        {/* Main Heading */}
         <motion.h1
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight"
         >
-          Software Engineer
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">
+            Backend & Full-Stack Engineer
+          </span>
         </motion.h1>
 
-        {/* Subtitle */}
+        {/* Value Proposition */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
-          className="text-lg sm:text-xl md:text-2xl text-gray-200 mt-6 font-light max-w-2xl leading-relaxed"
+          transition={{ duration: 0.8, delay: 0.35 }}
+          className="mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
         >
-          Specializing in Backend Development, Python, Docker, and Full Stack Solutions
+          I build <span className="text-white font-medium">scalable backend systems</span>,  
+          design <span className="text-white font-medium">clean APIs</span>,  
+          and deliver <span className="text-white font-medium">production-ready full-stack solutions</span>  
+           using Python, Django, Docker, and modern web technologies.
         </motion.p>
 
-        {/* Buttons */}
+        {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }}
-          className="mt-8 flex flex-col sm:flex-row gap-4"
+          transition={{ duration: 0.8, delay: 0.55 }}
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <button
             onClick={openPdf}
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl"
+            className="px-8 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold shadow-lg hover:shadow-blue-500/40 transition-all duration-300 hover:scale-[1.03]"
           >
-            Download CV
+            Download Resume
           </button>
+
           <Link
             to="Contact"
-            smooth={true}
+            smooth
             duration={500}
-            className="px-6 py-3 bg-transparent border border-blue-400 hover:bg-blue-400 hover:text-gray-900 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer"
+            className="px-8 py-3 rounded-xl border border-blue-400/60 text-white font-semibold backdrop-blur-md hover:bg-blue-400 hover:text-gray-900 transition-all duration-300 cursor-pointer"
           >
-            Contact Me
+            Let’s Connect
           </Link>
+        </motion.div>
+
+        {/* Tech Stack Pills */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="mt-12 flex flex-wrap justify-center gap-3 text-sm text-gray-300"
+        >
+          {[
+            "Python",
+            "Django",
+            "FastAPI",
+            "Docker",
+            "PostgreSQL",
+            "React",
+            "REST APIs",
+          ].map((tech) => (
+            <span
+              key={tech}
+              className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
+            >
+              {tech}
+            </span>
+          ))}
         </motion.div>
       </div>
 
-      {/* Subtle Floating Particles */}
+      {/* Floating Particles */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
+        {[...Array(25)].map((_, i) => (
+          <motion.span
             key={i}
-            className="absolute w-[3px] h-[3px] bg-blue-200 rounded-full opacity-20"
+            className="absolute w-[3px] h-[3px] bg-blue-300 rounded-full opacity-30"
             initial={{
               x: Math.random() * window.innerWidth,
               y: Math.random() * window.innerHeight,
-              opacity: 0.2,
-              scale: Math.random() * 0.8 + 0.5,
             }}
             animate={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              opacity: [0.2, 0.5, 0.2],
+              y: [null, Math.random() * window.innerHeight],
+              opacity: [0.2, 0.6, 0.2],
             }}
             transition={{
-              duration: Math.random() * 10 + 5,
+              duration: Math.random() * 12 + 8,
               repeat: Infinity,
-              ease: 'easeInOut',
+              ease: "easeInOut",
             }}
           />
         ))}

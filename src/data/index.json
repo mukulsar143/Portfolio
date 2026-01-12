@@ -27,37 +27,43 @@
     }
   ],
   "portfolio": [
-    {
-      "id": "1",
-      "src": "./img/placeholder-image.png",
-      "title": "Blogs",
-      "description": "A complete full-stack project built using React.js and Django Rest Framework, featuring user authentication and dynamic blog management.",
-      "link": "https://github.com/mukulsar143/Blogs"
-    },
-    {
-      "id": "2",
-      "src": "./img/placeholder-image-1.png",
-      "title": "E-Commerce API",
-      "description": "Developed a comprehensive e-commerce API with Django Rest Framework, implementing product listings, cart functionality, and user authentication.",
-      "link": "https://github.com/mukulsar143/Ecom"
-    },
-    {
-      "id": "3",
-      "src": "./img/placeholder-image-2.png",
-      "title": "Chat Application API using WebSockets",
-      "description": "Built a real-time chat application using WebSocket channels in Django Rest Framework, complete with JWT-based user authentication.",
-      "link": "https://github.com/mukulsar143/Chat-App-Websocket"
-    },
-    {
-    "id": "4",
+  {
+    "id": "1",
     "src": "./img/placeholder-image-3.png",
-    "title": "Smart Todo App",
-    "description": "Developed a Smart Todo App leveraging AI integrations to prioritize tasks, suggest deadlines, and optimize workflows. Built with React for the frontend and Django Rest Framework for the backend, incorporating Open AI APIs for intelligent task management.",
+    "title": "Smart Todo App (AI-Powered)",
+    "description": "An AI-powered productivity application that intelligently prioritizes tasks, suggests deadlines, and optimizes workflows using NLP. Built with a React frontend and Django Rest Framework backend, integrated with OpenAI APIs for smart task analysis.",
     "link": "https://github.com/mukulsar143/Smart-Todo-App",
-    "category": "AI-Powered Productivity"
+    "category": "AI-Powered Full Stack",
+    "tech": ["React", "Django REST Framework", "PostgreSQL", "Docker", "OpenAI API"]
+  },
+  {
+    "id": "2",
+    "src": "./img/placeholder-image.png",
+    "title": "Blogs Platform",
+    "description": "A full-stack blogging platform with user authentication, role-based access, and dynamic blog management using React and Django Rest Framework.",
+    "link": "https://github.com/mukulsar143/Blogs",
+    "category": "Full Stack Web",
+    "tech": ["React", "Django REST Framework", "JWT", "REST APIs"]
+  },
+  {
+    "id": "3",
+    "src": "./img/placeholder-image-1.png",
+    "title": "E-Commerce API",
+    "description": "A scalable e-commerce backend API supporting product management, cart functionality, and secure user authentication built with Django Rest Framework.",
+    "link": "https://github.com/mukulsar143/Ecom",
+    "category": "Backend API",
+    "tech": ["Django REST Framework", "PostgreSQL", "Authentication"]
+  },
+  {
+    "id": "4",
+    "src": "./img/placeholder-image-2.png",
+    "title": "Chat Application API (WebSockets)",
+    "description": "A real-time chat backend built using Django Channels and WebSockets with JWT-based authentication for secure and persistent messaging.",
+    "link": "https://github.com/mukulsar143/Chat-App-Websocket",
+    "category": "Real-Time Systems",
+    "tech": ["Django Channels", "WebSockets", "JWT", "Redis"]
   }
-
-  ],
+],
   "testimonial": [
     {
       "id": "1",

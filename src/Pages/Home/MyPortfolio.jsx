@@ -1,132 +1,145 @@
 import { motion } from "framer-motion";
 import data from "../../data/index.json";
+import placeholder from "../../data/img/placeholder-image-1.png";
 import pics from "../../data/img/placeholder-image-1.png";
 
 export default function MyPortfolio() {
+  const featuredProject = data?.portfolio?.[0]; // latest project (top priority)
+  const otherProjects = data?.portfolio?.slice(1);
+
   return (
     <section
       id="MyPortfolio"
-      className="relative bg-gray-900 py-16 px-6 lg:px-20 overflow-hidden"
+      className="relative bg-[#0B0F19] py-24 px-6 overflow-hidden"
     >
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.05)_0%,_transparent_70%)] pointer-events-none"></div>
-      
-      {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-indigo-950 opacity-90 animate-gradient"></div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0B0F19] via-[#0E1324] to-[#111827]" />
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-indigo-600/10 blur-[180px]" />
 
-      {/* Header Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-5xl mx-auto text-center relative z-10"
-      >
-        <h2 className="text-4xl font-bold text-white mb-6 tracking-tight font-sans">
-          My <span className="text-indigo-400">Portfolio</span>
-        </h2>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-base text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed"
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          Explore my latest projects, blending innovation with seamless design.
-        </motion.p>
-        <a
-          href="https://github.com/mukulsar143"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0px 0px 12px rgba(99, 102, 241, 0.5)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-2 bg-indigo-600 text-white font-medium text-sm rounded-lg shadow-md hover:bg-indigo-500 transition-all duration-300"
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
+            Projects
+          </h2>
+          <p className="mt-4 text-gray-300 max-w-3xl mx-auto text-base sm:text-lg">
+            A selection of projects showcasing my experience in backend,
+            full-stack development, and real-world problem solving.
+          </p>
+
+          <a
+            href="https://github.com/mukulsar143"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-6 px-6 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition"
           >
-            Visit My GitHub
-          </motion.button>
-        </a>
-      </motion.div>
+            View GitHub Profile
+          </a>
+        </motion.div>
 
-      {/* Portfolio Grid */}
-      <div className="max-w-5xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
-        {data?.portfolio?.map((item, index) => (
+        {/* ⭐ FEATURED PROJECT */}
+        {featuredProject && (
           <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-            className="relative bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-xl overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-20 grid lg:grid-cols-2 gap-8 items-center bg-white/5 border border-white/10 rounded-2xl p-6 lg:p-8"
           >
-            <div className="relative overflow-hidden h-48 sm:h-52">
+            {/* Image */}
+            <div className="overflow-hidden rounded-xl">
               <img
-                src={item.src || pics}
-                alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                onError={(e) => {
-                  e.target.src = pics; // Fallback to placeholder on error
-                }}
+                src={pics || pics}
+                alt={featuredProject.title}
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
 
-            <div className="p-5 space-y-3 text-center">
-              <div>
-                <h3 className="text-lg font-semibold text-white group-hover:text-indigo-300 transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-indigo-400 font-light">
-                  {item.category || "Web Development"}
-                </p>
-              </div>
-              <p className="text-gray-300 text-xs font-light leading-relaxed">
-                {item.description}
+            {/* Content */}
+            <div>
+              <span className="text-sm font-semibold text-blue-400 uppercase tracking-wide">
+                Latest Project
+              </span>
+
+              <h3 className="mt-3 text-2xl sm:text-3xl font-bold text-white">
+                {featuredProject.title}
+              </h3>
+
+              <p className="mt-4 text-gray-300 leading-relaxed">
+                {featuredProject.description}
               </p>
+
+              {/* Tech Stack */}
+              <div className="mt-4 flex flex-wrap gap-2">
+                {featuredProject.tech?.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1 text-xs rounded-full bg-white/10 text-gray-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
               <a
-                href={item.link}
+                href={featuredProject.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-indigo-400 hover:text-indigo-200 text-xs font-medium transition-colors duration-300"
+                className="inline-block mt-6 text-blue-400 font-medium hover:text-blue-300 transition"
               >
-                Explore Project
-                <svg
-                  className="ml-1 w-3 h-3"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+                View Project →
               </a>
             </div>
-
-            {/* Hover Glow Effect */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-indigo-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
           </motion.div>
-        ))}
-      </div>
+        )}
 
-      {/* Background Animation */}
-      <style jsx>{`
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradient {
-          background: linear-gradient(270deg, rgba(79, 70, 229, 0.3), rgba(0, 0, 0, 0.9), rgba(79, 70, 229, 0.3));
-          background-size: 400% 400%;
-          animation: gradient 8s ease infinite;
-        }
-      `}</style>
+        {/* OTHER PROJECTS */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {otherProjects?.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className="group bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-blue-400/40 transition"
+            >
+              <div className="h-44 overflow-hidden">
+                <img
+                  src={pics || pics}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              <div className="p-5">
+                <h4 className="text-lg font-semibold text-white group-hover:text-blue-400 transition">
+                  {item.title}
+                </h4>
+
+                <p className="mt-2 text-sm text-gray-400 leading-relaxed">
+                  {item.description}
+                </p>
+
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-3 text-sm text-blue-400 hover:text-blue-300 transition"
+                >
+                  View →
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

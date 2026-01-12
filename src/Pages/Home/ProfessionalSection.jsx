@@ -4,115 +4,126 @@ import logo from "../../Pics/python.jpg";
 export default function ExperiencesSection() {
   const experiences = [
     {
-      title: "SDE - Backend Engineer",
-      period: "2024 - Present",
-      company: "Online Savaari",
-      description:
-        "Experienced backend developer specializing in Python and Django Rest Framework. Skilled in designing and developing scalable RESTful APIs, integrating complex data, and working with third-party APIs. Strong expertise in data modeling, performance optimization, and ensuring secure and efficient communication between services.",
-      icon: logo,
-    },
-    {
-      title: "Python Developer",
-      period: "2024 - 2024",
+      role: "Application Developer",
       company: "Exackt Techfleeters",
-      description:
-        "Developed scalable web applications using Python and Django, optimizing performance and reliability. Designed complex APIs for seamless data exchange between frontend and backend. Built a feature-rich portal website and a real-time chat application using Django and WebSockets.",
-      icon: logo,
+      period: "2024 – Present",
+      current: true,
+      points: [
+        "Currently working as an Application Developer, building and maintaining backend-driven applications.",
+        "Developing RESTful APIs using Python and Django Rest Framework for application features.",
+        "Implementing business logic, validations, and data models for scalable applications.",
+        "Working on real-time features using Django Channels and WebSockets.",
+        "Collaborating with frontend developers to integrate APIs into user-facing applications.",
+      ],
     },
     {
-      title: "Web Developer",
-      period: "2023 - 2024",
+      role: "Backend / Python Developer",
+      company: "Online Savaari",
+      period: "2024",
+      current: false,
+      points: [
+        "Worked on backend development using Python and Django Rest Framework.",
+        "Designed and implemented REST APIs for core application functionality.",
+        "Handled third-party API integrations and backend data processing.",
+        "Focused on performance optimization and secure backend communication.",
+      ],
+    },
+    {
+      role: "Web Developer",
       company: "Aara Groups",
-      description:
-        "Utilized React components, hooks, and state management for dynamic, responsive pages. Collaborated with team members to integrate REST APIs, ensuring efficient data flow. Strengthened skills in React.js and modern front-end development practices.",
-      icon: logo,
+      period: "2023 – 2024",
+      current: false,
+      points: [
+        "Developed responsive user interfaces using React.js.",
+        "Integrated REST APIs and handled client-side state management.",
+        "Worked closely with backend teams to deliver complete features.",
+        "Improved UI performance and usability across devices.",
+      ],
     },
   ];
 
   return (
     <section
       id="experience"
-      className="relative bg-gray-900 py-24 px-6 lg:px-24 overflow-hidden"
+      className="relative bg-[#0B0F19] py-24 px-6 overflow-hidden"
     >
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.05)_0%,_transparent_70%)] pointer-events-none"></div>
-      
-      {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-black to-gray-900 opacity-90 animate-gradient"></div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0B0F19] via-[#0E1324] to-[#111827]" />
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-indigo-600/10 blur-[180px]" />
 
-      <div className="container mx-auto px-6 lg:px-20 relative z-10">
-        {/* Section Header */}
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-white mb-6 tracking-tight font-sans">
-            Professional <span className="text-indigo-400">Experience</span>
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
+            Experience
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
-            A journey through my professional roles, showcasing expertise in building innovative and scalable solutions.
+          <p className="mt-4 text-gray-300 max-w-3xl mx-auto text-base sm:text-lg">
+            Professional experience in application development, backend systems, and full-stack web development.
           </p>
         </motion.div>
 
-        {/* Experience Cards Grid */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {experiences.map((experience, index) => (
+        {/* Experience Cards */}
+        <div className="space-y-10">
+          {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-              className="relative bg-gray-800 bg-opacity-80 backdrop-blur-md rounded-2xl shadow-lg group hover:shadow-xl transition-all duration-300 p-8"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`relative rounded-2xl border p-6 sm:p-8 backdrop-blur-md transition
+                ${
+                  exp.current
+                    ? "bg-white/10 border-blue-400/40"
+                    : "bg-white/5 border-white/10"
+                }`}
             >
-              {/* Icon and Title */}
-              <div className="flex items-center space-x-4 mb-6">
-                <motion.img
-                  src={experience.icon}
-                  alt={experience.title}
-                  className="w-12 h-12 rounded-lg object-cover border-2 border-indigo-400"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <div>
-                  <h3 className="text-xl font-semibold text-white group-hover:text-indigo-300 transition-colors duration-300">
-                    {experience.title}
-                  </h3>
-                  <p className="text-sm text-gray-400 font-light">
-                    {experience.company}
-                  </p>
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={logo}
+                    alt={exp.role}
+                    className="w-12 h-12 rounded-lg object-cover border border-blue-400/50"
+                  />
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-semibold text-white">
+                      {exp.role}
+                    </h3>
+                    <p className="text-sm text-gray-400">
+                      {exp.company}
+                    </p>
+                  </div>
                 </div>
+
+                <span className="text-sm text-gray-400">
+                  {exp.period}
+                </span>
               </div>
 
-              {/* Date and Description */}
-              <p className="text-sm text-gray-400 font-light italic mb-4">
-                {experience.period}
-              </p>
-              <p className="text-gray-300 text-sm font-light leading-relaxed">
-                {experience.description}
-              </p>
+              {/* Responsibilities */}
+              <ul className="mt-4 space-y-2 text-gray-300 text-sm sm:text-base leading-relaxed list-disc list-inside">
+                {exp.points.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
 
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+              {/* Current Badge */}
+              {exp.current && (
+                <span className="absolute top-4 right-4 text-xs font-semibold px-3 py-1 rounded-full bg-blue-600/20 text-blue-400 border border-blue-400/40">
+                  Current
+                </span>
+              )}
             </motion.div>
           ))}
         </div>
       </div>
-
-      {/* Background Animation */}
-      <style jsx>{`
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradient {
-          background: linear-gradient(270deg, rgba(79, 70, 229, 0.3), rgba(0, 0, 0, 0.9), rgba(79, 70, 229, 0.3));
-          background-size: 400% 400%;
-          animation: gradient 8s ease infinite;
-        }
-      `}</style>
     </section>
   );
 }

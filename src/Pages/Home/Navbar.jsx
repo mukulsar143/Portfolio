@@ -2,295 +2,146 @@ import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 
-function Navbar() {
-  const [navActive, setNavActive] = useState(false);
+export default function Navbar() {
+  const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const toggleNav = () => setNavActive(!navActive);
-  const closeMenu = () => setNavActive(false);
-
-  // Navbar animation
-  const navbarVariants = {
-    hidden: { y: -50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
-  // Menu animation
-  const menuVariants = {
-    hidden: { x: "100%", opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { type: "spring", stiffness: 120, damping: 20 },
-    },
-    exit: { x: "100%", opacity: 0, transition: { duration: 0.4 } },
-  };
+  const navItems = [
+    { label: "Home", to: "heroSection" },
+    { label: "Skills", to: "mySkills" },
+    { label: "About", to: "AboutMe" },
+    { label: "Certificates", to: "testimonial" },
+    { label: "Experience", to: "experience" },
+  ];
 
   return (
-    <motion.nav
-      variants={navbarVariants}
-      initial="hidden"
-      animate="visible"
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-gray-900/90 backdrop-blur-lg shadow-md"
-          : "bg-gray-900/50"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >
-            <h1 className="text-2xl font-semibold text-white tracking-tight">
+    <>
+      {/* NAVBAR */}
+      <motion.nav
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-[#0B0F19]/80 backdrop-blur-xl border-b border-white/10"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="h-16 flex items-center justify-between">
+            {/* LOGO */}
+            <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-white">
               Mukul Sarkar<span className="text-blue-400">.</span>
             </h1>
-          </motion.div>
 
-          {/* Hamburger Icon */}
-          <motion.button
-            onClick={toggleNav}
-            className="lg:hidden text-white focus:outline-none"
-            whileTap={{ scale: 0.95 }}
-          >
-            <svg
-              className="h-7 w-7"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <motion.path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d={
-                  navActive ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"
-                }
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </svg>
-          </motion.button>
-
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-10">
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              <ul className="flex space-x-8 text-gray-200 text-base font-medium">
-                <li>
-                  <Link
-                    to="heroSection"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="mySkills"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
-                  >
-                    Skills
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="AboutMe"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="testimonial"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
-                  >
-                    Certificates
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="experience"
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                    className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
-                  >
-                    Experience
-                  </Link>
-                </li>
+            {/* DESKTOP MENU */}
+            <div className="hidden lg:flex items-center gap-10">
+              <ul className="flex gap-8 text-gray-300 text-sm font-medium">
+                {navItems.map((item) => (
+                  <li key={item.to}>
+                    <Link
+                      to={item.to}
+                      spy
+                      smooth
+                      offset={-70}
+                      duration={500}
+                      activeClass="text-blue-400"
+                      className="cursor-pointer transition-colors hover:text-blue-400"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
-            </motion.div>
 
-            {/* Contact Button */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
+              {/* CTA */}
               <Link
                 to="Contact"
-                spy={true}
-                smooth={true}
+                smooth
                 offset={-70}
                 duration={500}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium shadow-md transition-all duration-300 hover:shadow-lg"
+                className="px-5 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium shadow-md hover:bg-blue-700 transition"
               >
                 Contact
               </Link>
-            </motion.div>
+            </div>
+
+            {/* MOBILE HAMBURGER */}
+            <button
+              onClick={() => setNavOpen(true)}
+              className="lg:hidden text-white"
+            >
+              <span className="block w-6 h-[2px] bg-white mb-1"></span>
+              <span className="block w-6 h-[2px] bg-white mb-1"></span>
+              <span className="block w-6 h-[2px] bg-white"></span>
+            </button>
           </div>
         </div>
-      </div>
+      </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
-        {navActive && (
+        {navOpen && (
           <motion.div
-            className="fixed inset-0 bg-gray-900/95 z-40 lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[999] bg-[#0B0F19]/95 backdrop-blur-xl lg:hidden"
           >
-            <motion.div
-              className="flex flex-col items-center justify-center h-full p-6 space-y-8 text-white"
-              variants={menuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
+            {/* CLOSE */}
+            <button
+              onClick={() => setNavOpen(false)}
+              className="absolute top-6 right-6 text-white text-2xl"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.5 }}
-              >
-                <ul className="space-y-6 text-gray-200 text-lg font-medium">
-                  <li>
-                    <Link
-                      to="heroSection"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      onClick={closeMenu}
-                      className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
-                    >
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="mySkills"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      onClick={closeMenu}
-                      className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
-                    >
-                      Skills
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="AboutMe"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      onClick={closeMenu}
-                      className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
-                    >
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="testimonial"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      onClick={closeMenu}
-                      className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
-                    >
-                      Certificates
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="experience"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                      onClick={closeMenu}
-                      className="cursor-pointer hover:text-blue-400 transition-colors duration-200"
-                    >
-                      Experience
-                    </Link>
-                  </li>
-                </ul>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <Link
-                  to="Contact"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={closeMenu}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium shadow-md transition-all duration-300 hover:shadow-lg"
+              ✕
+            </button>
+
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="h-full flex flex-col items-center justify-center gap-8"
+            >
+              {navItems.map((item, i) => (
+                <motion.div
+                  key={item.to}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08 }}
                 >
-                  Contact
-                </Link>
-              </motion.div>
+                  <Link
+                    to={item.to}
+                    smooth
+                    offset={-70}
+                    duration={500}
+                    onClick={() => setNavOpen(false)}
+                    className="text-2xl font-medium text-gray-200 hover:text-blue-400 transition"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+
+              <Link
+                to="Contact"
+                smooth
+                offset={-70}
+                duration={500}
+                onClick={() => setNavOpen(false)}
+                className="mt-6 px-8 py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-lg hover:bg-blue-700 transition"
+              >
+                Contact Me
+              </Link>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </>
   );
 }
-
-export default Navbar;
